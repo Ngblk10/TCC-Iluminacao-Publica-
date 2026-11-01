@@ -1,2 +1,2 @@
 # TCC-Iluminacao-Publica-
-Protótipo de iluminação pública com Arduino
+Protótipo de iluminação pública com Arduino e Microcontrolador
