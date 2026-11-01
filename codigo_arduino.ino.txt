@@ -1,0 +1,30 @@
+const int pinoPIR = 2;       
+const int pinoLED = 9;    
+const int pinoLDR = A0;      
+int limiteLuz =200; 
+const int brilhoApagado = 0;
+const int brilho15Porcento = 38;  
+const int brilhoMaximo = 255;     
+void setup() {
+  Serial.begin(9600); 
+  pinMode(pinoPIR, INPUT)
+  pinMode(pinoLED, OUTPUT);  
+}
+void loop() {
+  int valorLDR = analogRead(pinoLDR);
+  int estadoPIR = digitalRead(pinoPIR);
+Serial.print("Luz: "); Serial.print(valorLDR);
+Serial.print(" | Movimento: "); Serial.println(estadoPIR);
+  if (valorLDR > limiteLuz) {
+    analogWrite(pinoLED, brilhoApagado);
+  } 
+  else {
+    if (estadoPIR == HIGH) {
+      analogWrite(pinoLED, brilhoMaximo);
+    } 
+    else {
+      analogWrite(pinoLED, brilho15Porcento);
+    }
+  }
+  delay(100);
+}
